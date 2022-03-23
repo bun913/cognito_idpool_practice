@@ -27,7 +27,14 @@ locals {
 module "auth" {
   source = "./modules/auth/"
 
-  prefix = local.default_prefix
+  prefix    = local.default_prefix
+  table_arn = module.dynamodb.table_arn
 
   tags = var.tags
+}
+
+module "dynamodb" {
+  source = "./modules/dynamodb/"
+
+  prefix = local.default_prefix
 }
