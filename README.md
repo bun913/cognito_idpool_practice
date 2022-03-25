@@ -67,3 +67,32 @@ aws dynamodb scan --region ap-norhteast-1 --table-name idpool-practice-dev-Score
     "ConsumedCapacity": null
 }
 ```
+
+
+## JavaScriptによるDynamoDBへのアクセス
+
+### 前準備
+
+appフォルダ配下に .envファイルを作成し、以下環境変数を設定する。
+
+```
+USER_POOL_ID=ap-northeast-1_xxxx
+CLIENT_ID=xxxx
+USER_NAME=xxxx
+PASS=xxxx
+ID_POOL_ID=ap-northeast-1:xxxx
+DYNAMO_TABLE=xxxxx
+```
+
+### 実行
+
+```bash
+yarn install
+node client.js
+```
+
+コンソールに以下のように、テーブルの内容が表示されれば成功
+
+```
+[ { Score: { N: '100' }, UserId: { S: '123' } } ]
+```
