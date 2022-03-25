@@ -15,3 +15,15 @@ resource "aws_dynamodb_table" "main" {
   /*   enabled        = false */
   /* } */
 }
+
+resource "aws_dynamodb_table_item" "main" {
+  table_name = aws_dynamodb_table.main.name
+  hash_key   = aws_dynamodb_table.main.hash_key
+
+  item = <<ITEM
+{
+  "UserId": {"S": "123"},
+  "Score": {"N": "100"}
+}
+ITEM
+}
