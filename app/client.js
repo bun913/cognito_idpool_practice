@@ -101,7 +101,6 @@ class Dynamo {
     };
     try {
       const result = await this.client.send(new ScanCommand(params));
-      console.log(result);
       return result;
     } catch (e) {
       console.log(e);
@@ -120,8 +119,9 @@ async function getTempCredintials() {
 async function scanDynamo(tempCredentials) {
   const dynamo = new Dynamo(tempCredentials);
   const result = await dynamo.scan();
-  return result;
+  return result.Items;
 }
 
 const credentials = await getTempCredintials();
 const scanResult = await scanDynamo(credentials);
+console.log(scanResult);
