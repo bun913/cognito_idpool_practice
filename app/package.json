@@ -1,0 +1,9 @@
+{
+  "type": "module",
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.56.0",
+    "amazon-cognito-identity-js": "^5.2.8",
+    "aws-sdk": "^2.1100.0",
+    "dotenv": "^16.0.0"
+  }
+}
